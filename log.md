@@ -6,11 +6,13 @@ Udfyld hver dag. Det er vigtigt at du overholder denne logbog - du kan risikere 
 Skriv tidspunkt for dit commit ud for hver dag, både morgen og aften.  
 Husk, at du ikke må arbejde på din opgave mellem kl. 16:00 og kl. 8:00.
 
-## Dag 1
+
 
 ## Dag 1
 
 Morgen - (kl. 13:06)  
+Commit: "Opret React projekt og grundlæggende struktur"
+
 Eftermiddag - (tidspunkt)
 
 ## Dag 2
