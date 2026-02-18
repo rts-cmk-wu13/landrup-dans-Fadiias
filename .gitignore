@@ -1,0 +1,27 @@
+# Guide filer (kun til personlig brug)
+COMMIT_GUIDE.md
+TASK_BREAKDOWN.md
+DAILY_CHECKLIST.md
+
+# Node modules
+node_modules/
+
+# Build output
+dist/
+build/
+
+# Environment variables
+.env
+.env.local
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
