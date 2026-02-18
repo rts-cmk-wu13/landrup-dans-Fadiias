@@ -1,0 +1,111 @@
+.intro-page {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #003147;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.intro-content {
+  text-align: center;
+  animation: fadeIn 1s ease-in;
+}
+
+.intro-title {
+  font-family: 'Arial', sans-serif;
+  font-style: italic;
+  font-weight: 900;
+  font-size: 5rem;
+  color: #FFFFFF;
+  margin-bottom: 4rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.intro-logos {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+  margin-top: 4rem;
+}
+
+.intro-logo-small {
+  height: 60px;
+  width: auto;
+  animation: slideInLeft 1s ease-out 0.5s both;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #FFFFFF;
+}
+
+.intro-logo-circle {
+  height: 120px;
+  width: auto;
+  animation: slideInRight 1s ease-out 0.5s both;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Responsivt design */
+@media (max-width: 768px) {
+  .intro-title {
+    font-size: 3rem;
+  }
+
+  .intro-logos {
+    gap: 2rem;
+  }
+
+  .intro-logo-small {
+    height: 40px;
+  }
+
+  .intro-logo-circle {
+    height: 80px;
+  }
+}
+
+@media (max-width: 480px) {
+  .intro-title {
+    font-size: 2rem;
+  }
+
+  .intro-logos {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+}
