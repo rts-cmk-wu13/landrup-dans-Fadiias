@@ -11,9 +11,10 @@ Husk, at du ikke må arbejde på din opgave mellem kl. 16:00 og kl. 8:00.
 ## Dag 1
 
 Morgen - (kl. 13:06)  
-Commit: "Opret React projekt og grundlæggende struktur"
+ "Opret React projekt og grundlæggende struktur"
 
-Eftermiddag - (tidspunkt)
+Eftermiddag - (kl. 14:57)  
+ "Opret intro side, homepage og login side med styling. Hero sektion med baggrundsbillede, header med logoer, holdtype sektioner, newsletter, testimonials, kontaktform og footer. Alle tekster hvide på mørkeblå baggrund (#003147)"
 
 ## Dag 2
 
