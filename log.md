@@ -18,7 +18,9 @@ Eftermiddag - (kl. 14:57)
 
 ## Dag 2
 
-Morgen - (tidspunkt)  
+Morgen - (kl. 11:00)  
+ "Opret genbrugelige komponenter og refaktorer homepage"
+
 Eftermiddag - (tidspunkt)
 
 ## Dag 3

@@ -248,3 +248,28 @@
   margin: 0.3rem 0;
   font-size: 0.9rem;
 }
+
+/* Activities Link Section */
+.activities-link-section {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.view-activities-btn {
+  background-color: #E1567C;
+  color: white;
+  border: none;
+  padding: 15px 40px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.view-activities-btn:hover {
+  background-color: #c93f65;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+

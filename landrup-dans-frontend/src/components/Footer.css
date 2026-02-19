@@ -1,0 +1,23 @@
+.footer {
+  background-color: #003147;
+  color: white;
+  padding: 40px;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.footer-logo {
+  height: 60px;
+}
+
+.footer-text {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footer-text p {
+  margin: 0;
+  font-size: 14px;
+}
