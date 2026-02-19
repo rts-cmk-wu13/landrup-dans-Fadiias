@@ -19,10 +19,10 @@ Eftermiddag - (kl. 14:57)
 ## Dag 2
 
 Morgen - (kl. 13.45)  
- "Opret genbrugelige HoldtypeCard komponenter. Tilføj aktivitetsside med kort og styling"
+ "Opret genbrugelige Header, Footer og HoldtypeCard komponenter. Refaktorer HomePage til at bruge disse komponenter for bedre kodestruktur"
 
 Eftermiddag - (kl. 15:30)
- 
+ "Implementer API service til aktiviteter med funktioner til hentning, tilmelding og framelding. Opret ActivitiesPage med API integration, aktivitetskort med overlay styling (360x344px, afrundede hjørner, translucent info overlay). Opdater IntroPage design med velkommen tekst, centreret logo og login knap. Tilføj søgefunktionalitet med React Icons og real-time filtrering af aktiviteter"
 
 
 ## Dag 3

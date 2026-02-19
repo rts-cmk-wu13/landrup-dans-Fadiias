@@ -1,11 +1,14 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { IoSearch } from 'react-icons/io5';
 import { getAllActivities } from '../services/api';
 import Footer from '../components/Footer';
 import './ActivitiesPage.css';
 
 function ActivitiesPage() {
   const [activities, setActivities] = useState([]);
+  const [filteredActivities, setFilteredActivities] = useState([]);
+  const [searchQuery, setSearchQuery] = useState('');
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
@@ -16,6 +19,7 @@ function ActivitiesPage() {
         setLoading(true);
         const data = await getAllActivities();
         setActivities(data);
+        setFilteredActivities(data);
         setError(null);
       } catch (err) {
         setError('Kunne ikke hente aktiviteter. Prøv igen senere.');
@@ -28,8 +32,23 @@ function ActivitiesPage() {
     fetchActivities();
   }, []);
 
+  useEffect(() => {
+    if (searchQuery.trim() === '') {
+      setFilteredActivities(activities);
+    } else {
+      const filtered = activities.filter((activity) =>
+        activity.name.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+      setFilteredActivities(filtered);
+    }
+  }, [searchQuery, activities]);
+
   const handleActivityClick = (id) => {
     navigate(`/aktivitet/${id}`);
+  };
+
+  const handleSearchChange = (e) => {
+    setSearchQuery(e.target.value);
   };
 
   return (
@@ -41,8 +60,10 @@ function ActivitiesPage() {
             type="text" 
             placeholder="Søg..." 
             className="search-input"
+            value={searchQuery}
+            onChange={handleSearchChange}
           />
-          <span className="search-icon">🔍</span>
+          <IoSearch className="search-icon" />
         </div>
       </section>
 
@@ -58,15 +79,15 @@ function ActivitiesPage() {
           </div>
         )}
 
-        {!loading && !error && activities.length === 0 && (
+        {!loading && !error && filteredActivities.length === 0 && (
           <div className="no-activities">
-            <p>Der er ingen aktiviteter tilgængelige i øjeblikket.</p>
+            <p>{searchQuery ? 'Ingen aktiviteter matcher din søgning.' : 'Der er ingen aktiviteter tilgængelige i øjeblikket.'}</p>
           </div>
         )}
 
-        {!loading && !error && activities.length > 0 && (
+        {!loading && !error && filteredActivities.length > 0 && (
           <div className="activities-grid">
-            {activities.map((activity) => (
+            {filteredActivities.map((activity) => (
               <div 
                 key={activity.id} 
                 className="activity-card"
