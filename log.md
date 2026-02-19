@@ -18,10 +18,12 @@ Eftermiddag - (kl. 14:57)
 
 ## Dag 2
 
-Morgen - (kl. 11:00)  
- "Opret genbrugelige komponenter og refaktorer homepage"
+Morgen - (kl. 13.45)  
+ "Opret genbrugelige HoldtypeCard komponenter. Tilføj aktivitetsside med kort og styling"
 
-Eftermiddag - (tidspunkt)
+Eftermiddag - (kl. 15:30)
+ 
+
 
 ## Dag 3
 

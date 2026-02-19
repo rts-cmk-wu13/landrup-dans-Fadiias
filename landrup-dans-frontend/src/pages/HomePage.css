@@ -3,28 +3,6 @@
   min-height: 100vh;
 }
 
-/* Header */
-.header {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  padding: 1.5rem;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  gap: 2rem;
-  z-index: 10;
-}
-
-.header-logo {
-  height: 60px;
-}
-
-.header-text-logo {
-  height: 40px;
-}
-
 /* Hero Section */
 .hero {
   position: relative;

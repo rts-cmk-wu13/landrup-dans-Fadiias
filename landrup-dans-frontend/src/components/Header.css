@@ -4,9 +4,10 @@
   left: 0;
   right: 0;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
-  padding: 20px 40px;
+  gap: 2rem;
+  padding: 1.5rem;
   z-index: 10;
 }
 
@@ -17,25 +18,9 @@
 }
 
 .header-logo {
-  height: 50px;
+  height: 60px;
 }
 
 .header-text-logo {
   height: 40px;
-}
-
-.login-btn {
-  background-color: #E1567C;
-  color: white;
-  border: none;
-  padding: 12px 30px;
-  border-radius: 25px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.login-btn:hover {
-  background-color: #c93f65;
-  transform: translateY(-2px);
 }

@@ -1,0 +1,160 @@
+.activities-page {
+  background-color: #003147;
+  min-height: 100vh;
+}
+
+.activities-hero {
+  position: relative;
+  background-color: #003d56;
+  padding: 100px 20px 30px;
+  text-align: center;
+}
+
+.activities-title {
+  color: white;
+  font-size: 1.8rem;
+  margin: 0 0 20px 0;
+  font-weight: 600;
+}
+
+.search-container {
+  position: relative;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.search-input {
+  width: 100%;
+  padding: 12px 40px 12px 15px;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  background-color: rgba(255, 255, 255, 0.15);
+  color: white;
+  outline: none;
+}
+
+.search-input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.search-icon {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px;
+  opacity: 0.6;
+}
+
+.activities-container {
+  padding: 30px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.activities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 30px;
+  margin-bottom: 40px;
+  justify-items: center;
+}
+
+.activity-card {
+  width: 360px;
+  height: 344px;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.activity-card:hover {
+  transform: translateY(-5px);
+}
+
+.activity-image-container {
+  width: 360px;
+  height: 344px;
+  overflow: hidden;
+  border-radius: 39px 39px 0px 39px;
+  background-color: #002d42;
+  position: relative;
+}
+
+.activity-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.activity-image-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #002d42;
+  color: #ffffff;
+  font-size: 14px;
+}
+
+.activity-info {
+  position: absolute;
+  width: 360px;
+  height: 96px;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 49, 71, 0.75);
+  border-radius: 0px 39px;
+  padding: 18px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.activity-name {
+  color: #E9E9E9;
+  font-family: 'Ubuntu', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 25px;
+  margin: 0;
+}
+
+.activity-age {
+  color: #E9E9E9;
+  font-family: 'Ubuntu', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+  margin: 0;
+}
+
+.loading-message,
+.error-message,
+.no-activities {
+  text-align: center;
+  padding: 40px 20px;
+  color: white;
+  font-size: 1.1rem;
+}
+
+.error-message {
+  color: #E1567C;
+}
+
+/* Responsive design */
+@media (min-width: 768px) {
+  .activities-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .activities-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
