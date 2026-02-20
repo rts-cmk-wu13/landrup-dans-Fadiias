@@ -30,7 +30,8 @@ Eftermiddag - (kl. 15:30)
 Morgen - (kl. 10,42)  
  "Opret SignupPage med registreringsformular (fornavn, efternavn, brugernavn, alder, adgangskode, gentag adgangskode).
 
-Eftermiddag - (tidspunkt)
+Eftermiddag - (kl. 13:45)
+ "Opret ActivityDetailPage med dynamisk data fra API.Fix aktivitetskort text overlay positioning. Implementer detail-visning med billede, Tilmeld knap, titel, alder og beskrivelse"
 
 ## Dag 4
 

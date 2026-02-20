@@ -44,7 +44,7 @@ function ActivitiesPage() {
   }, [searchQuery, activities]);
 
   const handleActivityClick = (id) => {
-    navigate(`/aktivitet/${id}`);
+    navigate(`/aktiviteter/${id}`);
   };
 
   const handleSearchChange = (e) => {
@@ -105,14 +105,14 @@ function ActivitiesPage() {
                       <span>Intet billede</span>
                     </div>
                   )}
-                  <div className="activity-info">
-                    <h3 className="activity-name">{activity.name}</h3>
-                    {activity.minAge && activity.maxAge && (
-                      <p className="activity-age">
-                        {activity.minAge}-{activity.maxAge} år
-                      </p>
-                    )}
-                  </div>
+                </div>
+                <div className="activity-info">
+                  <h3 className="activity-name">{activity.name}</h3>
+                  {activity.minAge && activity.maxAge && (
+                    <p className="activity-age">
+                      {activity.minAge}-{activity.maxAge} år
+                    </p>
+                  )}
                 </div>
               </div>
             ))}
