@@ -1,5 +1,26 @@
 const API_BASE_URL = 'http://localhost:4000/api/v1';
 
+// Opret ny bruger
+export const createUser = async (userData) => {
+  try {
+    const response = await fetch(`${API_BASE_URL}/users`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(userData)
+    });
+    if (!response.ok) {
+      throw new Error('Kunne ikke oprette bruger');
+    }
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Fejl ved oprettelse af bruger:', error);
+    throw error;
+  }
+};
+
 // Hent alle aktiviteter
 export const getAllActivities = async () => {
   try {
