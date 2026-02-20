@@ -27,8 +27,8 @@ Eftermiddag - (kl. 15:30)
 
 ## Dag 3
 
-Morgen - (kl. 13:50)  
- "Opret SignupPage med registreringsformular (fornavn, efternavn, brugernavn, alder, adgangskode, gentag adgangskode). Implementer formvalidering og createUser API funktion. Tilføj signup route til App og link fra LoginPage"
+Morgen - (kl. 10,42)  
+ "Opret SignupPage med registreringsformular (fornavn, efternavn, brugernavn, alder, adgangskode, gentag adgangskode).
 
 Eftermiddag - (tidspunkt)
 
