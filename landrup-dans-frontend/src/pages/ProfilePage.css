@@ -1,0 +1,202 @@
+.profile-page {
+  position: relative;
+  width: 100%;
+  max-width: 410px;
+  min-height: 100vh;
+  margin: 0 auto;
+  background: #003147;
+  padding-bottom: 80px;
+}
+
+.profile-title {
+  position: absolute;
+  width: 364px;
+  height: 28px;
+  left: 24px;
+  top: 24px;
+  font-family: 'Ubuntu', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 28px;
+  text-align: center;
+  color: #EBECDF;
+  margin: 0;
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px 24px;
+  gap: 14px;
+  position: absolute;
+  width: 410px;
+  height: 176px;
+  left: 0px;
+  top: 80px;
+  background: #E9E9E9;
+}
+
+.profile-avatar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.avatar-circle {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: #003147;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #E9E9E9;
+}
+
+.profile-name {
+  width: 362px;
+  height: 31px;
+  font-family: 'Ubuntu', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 27px;
+  line-height: 31px;
+  text-align: center;
+  color: #003147;
+  margin: 0;
+  flex: none;
+  order: 1;
+  align-self: stretch;
+  flex-grow: 0;
+}
+
+.profile-role {
+  width: 362px;
+  height: 21px;
+  font-family: 'Ubuntu', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+  text-align: center;
+  color: #003147;
+  margin: 0;
+  flex: none;
+  order: 2;
+  align-self: stretch;
+  flex-grow: 0;
+}
+
+.activities-section {
+  position: absolute;
+  top: 299px;
+  left: 0;
+  width: 100%;
+  padding: 0 24px;
+}
+
+.section-title {
+  width: 163px;
+  height: 28px;
+  font-family: 'Ubuntu', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 28px;
+  color: #EBECDF;
+  margin: 0 0 20px 0;
+}
+
+.activities-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.activity-card {
+  position: relative;
+  width: 362px;
+  height: 160px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 12px;
+  padding: 16px 24px;
+  box-sizing: border-box;
+}
+
+.activity-name {
+  position: absolute;
+  width: 315px;
+  height: 30px;
+  left: 24px;
+  top: 16px;
+  font-family: 'Ubuntu', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 26px;
+  line-height: 30px;
+  color: #003147;
+  margin: 0;
+}
+
+.activity-time {
+  position: absolute;
+  width: 315px;
+  height: 21px;
+  left: 24px;
+  top: 63px;
+  font-family: 'Ubuntu', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+  color: #003147;
+  margin: 0;
+}
+
+.show-activity-btn {
+  position: absolute;
+  width: 150px;
+  height: 43px;
+  left: 24px;
+  top: 100px;
+  background: #003147;
+  box-shadow: 3px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  border: none;
+  font-family: 'Ubuntu', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+  text-align: center;
+  color: #EBECDF;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+.show-activity-btn:hover {
+  opacity: 0.9;
+}
+
+.no-activities {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 18px;
+  color: #EBECDF;
+  text-align: center;
+  padding: 2rem;
+}
+
+.loading {
+  color: #ffffff;
+  text-align: center;
+  padding: 2rem;
+  font-size: 1.2rem;
+  font-family: 'Ubuntu', sans-serif;
+}

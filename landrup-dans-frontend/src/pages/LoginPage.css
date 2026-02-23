@@ -59,6 +59,20 @@
   background-color: #f0f0f0;
 }
 
+.login-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.error-message {
+  color: #ff6b6b;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 0.75rem;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
 .signup-link {
   color: #ffffff;
   text-align: center;

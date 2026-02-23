@@ -35,7 +35,9 @@ Eftermiddag - (kl. 13:45)
 
 ## Dag 4
 
-Morgen - (tidspunkt)  
+Morgen - (kl. 10:11)  
+ "Implementer login og signup funktionalitet med validering og API integration. Opret ProfilePage med brugerinfo og tilmeldte aktiviteter. Opdater HomePage knap til dynamisk at vise 'Min Profil' for indloggede brugere. Tilføj authentication token håndtering i localStorage"
+
 Eftermiddag - (tidspunkt)
 
 ## Dag 5

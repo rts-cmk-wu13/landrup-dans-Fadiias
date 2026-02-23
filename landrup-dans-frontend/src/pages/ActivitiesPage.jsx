@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { IoSearch } from 'react-icons/io5';
 import { getAllActivities } from '../services/api';
-import Footer from '../components/Footer';
 import './ActivitiesPage.css';
 
 function ActivitiesPage() {
@@ -119,8 +118,6 @@ function ActivitiesPage() {
           </div>
         )}
       </div>
-
-      <Footer />
     </div>
   );
 }

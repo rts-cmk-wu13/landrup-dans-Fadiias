@@ -5,6 +5,7 @@ import LoginPage from './pages/LoginPage';
 import SignupPage from './pages/SignupPage';
 import ActivitiesPage from './pages/ActivitiesPage';
 import ActivityDetailPage from './pages/ActivityDetailPage';
+import ProfilePage from './pages/ProfilePage';
 import './App.css';
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
           <Route path="/signup" element={<SignupPage />} />
           <Route path="/aktiviteter" element={<ActivitiesPage />} />
           <Route path="/aktiviteter/:id" element={<ActivityDetailPage />} />
+          <Route path="/profil" element={<ProfilePage />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </div>

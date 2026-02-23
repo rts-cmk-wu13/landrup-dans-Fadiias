@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -6,6 +7,13 @@ import './HomePage.css';
 
 function HomePage() {
   const navigate = useNavigate();
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    // Check if user is logged in
+    const token = localStorage.getItem('token');
+    setIsLoggedIn(!!token);
+  }, []);
 
   const holdtyper = [
     {
@@ -35,8 +43,11 @@ function HomePage() {
       {/* Hero Section */}
       <section className="hero">
         <Header />
-        <button className="login-btn" onClick={() => navigate('/login')}>
-          Log ind her
+        <button 
+          className="login-btn" 
+          onClick={() => navigate(isLoggedIn ? '/profil' : '/login')}
+        >
+          {isLoggedIn ? 'Min Profil' : 'Log ind her'}
         </button>
       </section>
 

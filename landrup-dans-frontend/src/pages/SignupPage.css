@@ -135,6 +135,11 @@
   opacity: 0.9;
 }
 
+.signup-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
 .error-message {
   color: #ff6b6b;
   background-color: rgba(255, 255, 255, 0.1);
