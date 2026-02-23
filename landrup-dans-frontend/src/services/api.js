@@ -133,3 +133,18 @@ export const getUserWithActivities = async (userId, token) => {
     throw error;
   }
 };
+
+// Hent deltagere i en aktivitet
+export const getActivityParticipants = async (activityId) => {
+  try {
+    const response = await fetch(`${API_BASE_URL}/activities/${activityId}/participants`);
+    if (!response.ok) {
+      throw new Error('Kunne ikke hente deltagere');
+    }
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Fejl ved hentning af deltagere:', error);
+    throw error;
+  }
+};

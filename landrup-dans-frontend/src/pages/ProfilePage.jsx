@@ -14,6 +14,8 @@ function ProfilePage() {
       const token = localStorage.getItem('token');
       const userId = localStorage.getItem('userId');
 
+      console.log('ProfilePage - token:', !!token, 'userId:', userId);
+
       if (!token || !userId) {
         // Not logged in, redirect to login
         navigate('/login');
@@ -22,6 +24,8 @@ function ProfilePage() {
 
       try {
         const userData = await getUserWithActivities(userId, token);
+        console.log('ProfilePage - User data:', userData);
+        console.log('ProfilePage - Activities:', userData.Activities);
         setUser(userData);
       } catch (error) {
         console.error('Error fetching user data:', error);
@@ -71,17 +75,17 @@ function ProfilePage() {
         <p className="profile-role">{roleText}</p>
       </div>
 
-      <div className="activities-section">
-        <h2 className="section-title">Tilmeldte hold</h2>
+      <div className="tilmeldte-section">
+        <h2 className="tilmeldte-title">Tilmeldte hold</h2>
         
         {user.Activities && user.Activities.length > 0 ? (
-          <div className="activities-list">
+          <div className="kalender-list">
             {user.Activities.map((activity) => (
-              <div key={activity.id} className="activity-card">
-                <h3 className="activity-name">{activity.name}</h3>
-                <p className="activity-time">{activity.weekday} kl. {activity.time}</p>
+              <div key={activity.id} className="kalender-kort">
+                <h3 className="kalender-kort-titel">{activity.name}</h3>
+                <p className="kalender-kort-tid">{activity.weekday} kl. {activity.time}</p>
                 <button 
-                  className="show-activity-btn"
+                  className="kalender-vis-knap"
                   onClick={() => navigate(`/aktiviteter/${activity.id}`)}
                 >
                   Vis hold
@@ -90,9 +94,13 @@ function ProfilePage() {
             ))}
           </div>
         ) : (
-          <p className="no-activities">Du er ikke tilmeldt nogen hold endnu.</p>
+          <p className="ingen-tilmeldinger">Du er ikke tilmeldt nogen hold endnu.</p>
         )}
       </div>
+
+      <button className="logout-btn" onClick={handleLogout}>
+        Log ud
+      </button>
     </div>
   );
 }

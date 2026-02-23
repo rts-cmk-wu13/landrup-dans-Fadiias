@@ -38,7 +38,8 @@ Eftermiddag - (kl. 13:45)
 Morgen - (kl. 10:11)  
  "Implementer login og signup funktionalitet med validering og API integration. Opret ProfilePage med brugerinfo og tilmeldte aktiviteter. Opdater HomePage knap til dynamisk at vise 'Min Profil' for indloggede brugere. Tilføj authentication token håndtering i localStorage"
 
-Eftermiddag - (tidspunkt)
+Eftermiddag - (kl. 15:23)
+ "Implementer komplet tilmeldings-system: Tilmeld/Frameld funktionalitet på ActivityDetailPage med automatisk redirect til profil. Opret kalender kort komponenter (362x160px) på ProfilePage med unikke class names (kalender-kort, kalender-kort-titel, kalender-kort-tid, kalender-vis-knap). Tilføj deltagerliste på 'Vis hold' side med antal tilmeldte. Fiks backend model associations med aliases (Activities, Users, Instructor, TaughtActivities). Implementer footer navigation med React Icons (IoHome, IoGrid, IoPerson) der vises på alle sider undtagen home (410x66px, #E9E9E9 baggrund). Tilføj logout funktionalitet. Løs class name konflikt mellem footer og testimonial navigation"
 
 ## Dag 5
 

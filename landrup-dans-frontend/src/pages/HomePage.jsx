@@ -90,8 +90,8 @@ function HomePage() {
           </p>
           <p className="testimonial-author">- Cecilie Caspersen</p>
           <div className="testimonial-nav">
-            <button className="nav-btn">←</button>
-            <button className="nav-btn">→</button>
+            <button className="testimonial-nav-btn">←</button>
+            <button className="testimonial-nav-btn">→</button>
           </div>
         </div>
       </section>

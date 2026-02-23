@@ -1,14 +1,43 @@
+import { useNavigate, useLocation } from 'react-router-dom';
+import { IoHome, IoGrid, IoPerson } from 'react-icons/io5';
 import './Footer.css';
 
 function Footer() {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  // Don't show footer on home page
+  if (location.pathname === '/home' || location.pathname === '/') {
+    return null;
+  }
+
+  const isActive = (path) => location.pathname === path || location.pathname.startsWith(path + '/');
+
   return (
-    <footer className="footer">
-      <img src="/Group 8.png" alt="LD Logo" className="footer-logo" />
-      <div className="footer-text">
-        <p>Landrup Dans</p>
-        <p>Rønnebærvej 1, 9000 Roskilde</p>
-        <p>Tlf. 3560-4370</p>
-      </div>
+    <footer className="footer-nav">
+      <button 
+        className={`nav-btn ${isActive('/home') ? 'active' : ''}`}
+        onClick={() => navigate('/home')}
+      >
+        <IoHome className="nav-icon" />
+        <span className="nav-label">Home</span>
+      </button>
+      
+      <button 
+        className={`nav-btn ${isActive('/aktiviteter') ? 'active' : ''}`}
+        onClick={() => navigate('/aktiviteter')}
+      >
+        <IoGrid className="nav-icon" />
+        <span className="nav-label">Aktiviteter</span>
+      </button>
+      
+      <button 
+        className={`nav-btn ${isActive('/profil') ? 'active' : ''}`}
+        onClick={() => navigate('/profil')}
+      >
+        <IoPerson className="nav-icon" />
+        <span className="nav-label">Profil</span>
+      </button>
     </footer>
   );
 }

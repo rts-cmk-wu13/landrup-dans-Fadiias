@@ -5,7 +5,7 @@
   min-height: 100vh;
   margin: 0 auto;
   background: #003147;
-  padding-bottom: 80px;
+  padding-bottom: 90px; /* Space for footer navigation */
 }
 
 .profile-title {
@@ -94,7 +94,8 @@
   flex-grow: 0;
 }
 
-.activities-section {
+/* Tilmeldte Hold Sektion */
+.tilmeldte-section {
   position: absolute;
   top: 299px;
   left: 0;
@@ -102,7 +103,7 @@
   padding: 0 24px;
 }
 
-.section-title {
+.tilmeldte-title {
   width: 163px;
   height: 28px;
   font-family: 'Ubuntu', sans-serif;
@@ -114,13 +115,14 @@
   margin: 0 0 20px 0;
 }
 
-.activities-list {
+.kalender-list {
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
 
-.activity-card {
+/* Kalender Kort */
+.kalender-kort {
   position: relative;
   width: 362px;
   height: 160px;
@@ -130,7 +132,7 @@
   box-sizing: border-box;
 }
 
-.activity-name {
+.kalender-kort-titel {
   position: absolute;
   width: 315px;
   height: 30px;
@@ -145,7 +147,7 @@
   margin: 0;
 }
 
-.activity-time {
+.kalender-kort-tid {
   position: absolute;
   width: 315px;
   height: 21px;
@@ -160,7 +162,8 @@
   margin: 0;
 }
 
-.show-activity-btn {
+/* Knap */
+.kalender-vis-knap {
   position: absolute;
   width: 150px;
   height: 43px;
@@ -181,11 +184,11 @@
   transition: opacity 0.3s;
 }
 
-.show-activity-btn:hover {
+.kalender-vis-knap:hover {
   opacity: 0.9;
 }
 
-.no-activities {
+.ingen-tilmeldinger {
   font-family: 'Ubuntu', sans-serif;
   font-size: 18px;
   color: #EBECDF;
@@ -199,4 +202,28 @@
   padding: 2rem;
   font-size: 1.2rem;
   font-family: 'Ubuntu', sans-serif;
+}
+.logout-btn {
+  position: absolute;
+  bottom: 110px; /* Position above footer navigation */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 43px;
+  background: #E9E9E9;
+  border: 2px solid #003147;
+  border-radius: 10px;
+  font-family: 'Ubuntu', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+  text-align: center;
+  color: #003147;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+.logout-btn:hover {
+  opacity: 0.8;
 }

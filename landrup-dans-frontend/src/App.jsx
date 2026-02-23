@@ -6,6 +6,7 @@ import SignupPage from './pages/SignupPage';
 import ActivitiesPage from './pages/ActivitiesPage';
 import ActivityDetailPage from './pages/ActivityDetailPage';
 import ProfilePage from './pages/ProfilePage';
+import Footer from './components/Footer';
 import './App.css';
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
           <Route path="/profil" element={<ProfilePage />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
+        <Footer />
       </div>
     </BrowserRouter>
   );

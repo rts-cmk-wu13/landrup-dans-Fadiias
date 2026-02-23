@@ -4,6 +4,7 @@
   min-height: 100vh;
   background: #003147;
   padding: 0;
+  padding-bottom: 90px; /* Space for footer navigation */
   display: flex;
   flex-direction: column;
   align-items: center;

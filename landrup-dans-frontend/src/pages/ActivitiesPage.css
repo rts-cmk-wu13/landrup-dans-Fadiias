@@ -1,6 +1,7 @@
 .activities-page {
   background-color: #003147;
   min-height: 100vh;
+  padding-bottom: 90px; /* Space for footer navigation */
 }
 
 .activities-hero {
