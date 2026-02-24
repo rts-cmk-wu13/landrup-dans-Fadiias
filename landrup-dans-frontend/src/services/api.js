@@ -134,6 +134,67 @@ export const getUserWithActivities = async (userId, token) => {
   }
 };
 
+// Opret ny aktivitet (instruktør)
+export const createActivity = async (formData, token) => {
+  try {
+    const response = await fetch(`${API_BASE_URL}/activities`, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${token}`
+      },
+      body: formData
+    });
+    if (!response.ok) {
+      throw new Error('Kunne ikke oprette hold');
+    }
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Fejl ved oprettelse af hold:', error);
+    throw error;
+  }
+};
+
+// Rediger aktivitet (instruktør)
+export const updateActivity = async (id, formData, token) => {
+  try {
+    const response = await fetch(`${API_BASE_URL}/activities/${id}`, {
+      method: 'PATCH',
+      headers: {
+        'Authorization': `Bearer ${token}`
+      },
+      body: formData
+    });
+    if (!response.ok) {
+      throw new Error('Kunne ikke opdatere hold');
+    }
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Fejl ved opdatering af hold:', error);
+    throw error;
+  }
+};
+
+// Slet aktivitet (instruktør)
+export const deleteActivity = async (id, token) => {
+  try {
+    const response = await fetch(`${API_BASE_URL}/activities/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    });
+    if (!response.ok) {
+      throw new Error('Kunne ikke slette hold');
+    }
+    return true;
+  } catch (error) {
+    console.error('Fejl ved sletning af hold:', error);
+    throw error;
+  }
+};
+
 // Hent deltagere i en aktivitet
 export const getActivityParticipants = async (activityId) => {
   try {
@@ -147,4 +208,39 @@ export const getActivityParticipants = async (activityId) => {
     console.error('Fejl ved hentning af deltagere:', error);
     throw error;
   }
+};
+
+// Tilmeld nyhedsbrev
+export const subscribeNewsletter = async (email) => {
+  const form = new URLSearchParams();
+  form.append('email', email);
+  const response = await fetch(`${API_BASE_URL}/newsletter`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: form
+  });
+  if (!response.ok) throw new Error('Kunne ikke tilmelde nyhedsbrev');
+  return response.json();
+};
+
+// Hent testimonials
+export const getAllTestimonials = async () => {
+  const response = await fetch(`${API_BASE_URL}/testimonials`);
+  if (!response.ok) throw new Error('Kunne ikke hente testimonials');
+  return response.json();
+};
+
+// Send kontaktbesked
+export const sendMessage = async (name, email, message) => {
+  const form = new URLSearchParams();
+  form.append('name', name);
+  form.append('email', email);
+  form.append('message', message);
+  const response = await fetch(`${API_BASE_URL}/messages`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: form
+  });
+  if (!response.ok) throw new Error('Kunne ikke sende besked');
+  return response.json();
 };

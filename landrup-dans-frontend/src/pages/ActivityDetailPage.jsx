@@ -10,6 +10,8 @@ function ActivityDetailPage() {
   const [participants, setParticipants] = useState([]);
   const [isEnrolled, setIsEnrolled] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [enrollError, setEnrollError] = useState('');
+  const isLoggedIn = !!localStorage.getItem('token');
 
   useEffect(() => {
     const fetchActivity = async () => {
@@ -33,15 +35,10 @@ function ActivityDetailPage() {
     const checkEnrollment = async () => {
       const token = localStorage.getItem('token');
       const userId = localStorage.getItem('userId');
-      
-      console.log('Checking enrollment - token:', !!token, 'userId:', userId);
-      
       if (token && userId) {
         try {
           const userData = await getUserWithActivities(userId, token);
-          console.log('User activities:', userData.Activities);
           const enrolled = userData.Activities?.some(act => act.id === parseInt(id));
-          console.log('Is enrolled:', enrolled);
           setIsEnrolled(enrolled);
         } catch (error) {
           console.error('Error checking enrollment:', error);
@@ -59,36 +56,45 @@ function ActivityDetailPage() {
   const handleEnrollment = async () => {
     const token = localStorage.getItem('token');
     const userId = localStorage.getItem('userId');
-
-    console.log('Handle enrollment - token:', !!token, 'userId:', userId, 'activityId:', id);
-
-    if (!token || !userId) {
-      // Redirect til login hvis ikke logget ind
-      console.log('Not logged in, redirecting to login');
-      navigate('/login');
-      return;
-    }
+    setEnrollError('');
 
     setLoading(true);
     try {
       if (isEnrolled) {
-        console.log('Unenrolling from activity');
         await unenrollFromActivity(id, userId, token);
         setIsEnrolled(false);
-        // Redirect to profile after unenrolling
         navigate('/profil');
       } else {
-        console.log('Enrolling in activity');
-        const result = await enrollInActivity(id, userId, token);
-        console.log('Enrollment result:', result);
+        // Fetch user data for validation
+        const userData = await getUserWithActivities(userId, token);
+
+        // Aldersbegrænsning check
+        if (activity.minAge && activity.maxAge) {
+          const userAge = userData.age;
+          if (userAge < activity.minAge || userAge > activity.maxAge) {
+            setEnrollError(`Du skal være ${activity.minAge}-${activity.maxAge} år for at tilmelde dig.`);
+            setLoading(false);
+            return;
+          }
+        }
+
+        // Samme ugedag check
+        const sameWeekday = userData.Activities?.some(
+          act => act.weekday === activity.weekday
+        );
+        if (sameWeekday) {
+          setEnrollError(`Du er allerede tilmeldt en aktivitet på ${activity.weekday}.`);
+          setLoading(false);
+          return;
+        }
+
+        await enrollInActivity(id, userId, token);
         setIsEnrolled(true);
-        
-        // Redirect to profile page after successful enrollment
         navigate('/profil');
       }
     } catch (error) {
       console.error('Error enrolling/unenrolling:', error);
-      alert('Der opstod en fejl. Prøv igen senere.');
+      setEnrollError('Der opstod en fejl. Prøv igen senere.');
     } finally {
       setLoading(false);
     }
@@ -102,14 +108,20 @@ function ActivityDetailPage() {
     <div className="detail-container">
       <div className="detail-hero-image">
         <img src={activity.asset?.url || '/detsigerkunderne.jpg'} alt={activity.name} />
-        <button 
-          className="detail-button"
-          onClick={handleEnrollment}
-          disabled={loading}
-        >
-          {loading ? 'Vent...' : isEnrolled ? 'Frameld' : 'Tilmeld'}
-        </button>
+        {isLoggedIn && (
+          <button
+            className="detail-button"
+            onClick={handleEnrollment}
+            disabled={loading}
+          >
+            {loading ? 'Vent...' : isEnrolled ? 'Forlad' : 'Tilmeld'}
+          </button>
+        )}
       </div>
+
+      {enrollError && (
+        <p className="detail-error">{enrollError}</p>
+      )}
 
       <div className="detail-content">
         <h1 className="detail-heading">{activity.name}</h1>
@@ -120,7 +132,6 @@ function ActivityDetailPage() {
           {activity.description || 'Ingen beskrivelse tilgængelig.'}
         </p>
 
-        {/* Class Schedule */}
         {activity.weekday && activity.time && (
           <div className="class-schedule">
             <h3 className="schedule-heading">Tidspunkt</h3>
@@ -128,7 +139,6 @@ function ActivityDetailPage() {
           </div>
         )}
 
-        {/* Participants Section */}
         {isEnrolled && (
           <div className="participants-section">
             <h3 className="participants-heading">

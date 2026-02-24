@@ -35,8 +35,12 @@ function ActivitiesPage() {
     if (searchQuery.trim() === '') {
       setFilteredActivities(activities);
     } else {
+      const q = searchQuery.toLowerCase();
       const filtered = activities.filter((activity) =>
-        activity.name.toLowerCase().includes(searchQuery.toLowerCase())
+        activity.name.toLowerCase().includes(q) ||
+        activity.weekday?.toLowerCase().includes(q) ||
+        activity.Instructor?.firstname?.toLowerCase().includes(q) ||
+        activity.Instructor?.lastname?.toLowerCase().includes(q)
       );
       setFilteredActivities(filtered);
     }
@@ -80,7 +84,7 @@ function ActivitiesPage() {
 
         {!loading && !error && filteredActivities.length === 0 && (
           <div className="no-activities">
-            <p>{searchQuery ? 'Ingen aktiviteter matcher din søgning.' : 'Der er ingen aktiviteter tilgængelige i øjeblikket.'}</p>
+            <p>{searchQuery ? 'Der blev ikke fundet nogle aktiviteter. Prøv at søge efter noget andet.' : 'Der er ingen aktiviteter tilgængelige i øjeblikket.'}</p>
           </div>
         )}
 

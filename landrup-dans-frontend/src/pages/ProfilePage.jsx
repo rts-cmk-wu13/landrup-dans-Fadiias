@@ -1,35 +1,29 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { getUserWithActivities } from '../services/api';
+import { getUserWithActivities, deleteActivity } from '../services/api';
 import './ProfilePage.css';
 
 function ProfilePage() {
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [deleteConfirm, setDeleteConfirm] = useState(null); // holds activity to delete
 
   useEffect(() => {
     const fetchUserData = async () => {
-      // Check if user is logged in
       const token = localStorage.getItem('token');
       const userId = localStorage.getItem('userId');
 
-      console.log('ProfilePage - token:', !!token, 'userId:', userId);
-
       if (!token || !userId) {
-        // Not logged in, redirect to login
         navigate('/login');
         return;
       }
 
       try {
         const userData = await getUserWithActivities(userId, token);
-        console.log('ProfilePage - User data:', userData);
-        console.log('ProfilePage - Activities:', userData.Activities);
         setUser(userData);
       } catch (error) {
         console.error('Error fetching user data:', error);
-        // If token is invalid, redirect to login
         localStorage.clear();
         navigate('/login');
       } finally {
@@ -41,13 +35,24 @@ function ProfilePage() {
   }, [navigate]);
 
   const handleLogout = () => {
-    // Clear localStorage
     localStorage.removeItem('token');
     localStorage.removeItem('userId');
     localStorage.removeItem('role');
-    
-    // Redirect to home
     navigate('/home');
+  };
+
+  const handleDelete = async () => {
+    const token = localStorage.getItem('token');
+    try {
+      await deleteActivity(deleteConfirm.id, token);
+      setUser(prev => ({
+        ...prev,
+        Activities: prev.Activities.filter(a => a.id !== deleteConfirm.id)
+      }));
+      setDeleteConfirm(null);
+    } catch (error) {
+      console.error('Fejl ved sletning:', error);
+    }
   };
 
   if (loading) {
@@ -76,31 +81,91 @@ function ProfilePage() {
       </div>
 
       <div className="tilmeldte-section">
-        <h2 className="tilmeldte-title">Tilmeldte hold</h2>
-        
+        <div className="tilmeldte-header">
+          <h2 className="tilmeldte-title">
+            {user.role === 'instructor' ? 'Mine hold' : 'Tilmeldte hold'}
+          </h2>
+          {user.role === 'instructor' && (
+            <button className="opret-hold-btn" onClick={() => navigate('/opret-hold')}>
+              + Opret hold
+            </button>
+          )}
+        </div>
+
         {user.Activities && user.Activities.length > 0 ? (
           <div className="kalender-list">
             {user.Activities.map((activity) => (
               <div key={activity.id} className="kalender-kort">
                 <h3 className="kalender-kort-titel">{activity.name}</h3>
                 <p className="kalender-kort-tid">{activity.weekday} kl. {activity.time}</p>
-                <button 
-                  className="kalender-vis-knap"
-                  onClick={() => navigate(`/aktiviteter/${activity.id}`)}
-                >
-                  Vis hold
-                </button>
+                <div className="kalender-knapper">
+                  {user.role === 'instructor' ? (
+                    <button
+                      className="kalender-vis-knap"
+                      onClick={() => navigate(`/deltagerliste/${activity.id}`)}
+                    >
+                      Deltagerliste
+                    </button>
+                  ) : (
+                    <button
+                      className="kalender-vis-knap"
+                      onClick={() => navigate(`/aktiviteter/${activity.id}`)}
+                    >
+                      Vis hold
+                    </button>
+                  )}
+                  {user.role === 'instructor' && (
+                    <>
+                      <button
+                        className="kalender-rediger-knap"
+                        onClick={() => navigate(`/rediger-hold/${activity.id}`)}
+                      >
+                        Rediger
+                      </button>
+                      <button
+                        className="kalender-slet-knap"
+                        onClick={() => setDeleteConfirm(activity)}
+                      >
+                        Slet
+                      </button>
+                    </>
+                  )}
+                </div>
               </div>
             ))}
           </div>
         ) : (
-          <p className="ingen-tilmeldinger">Du er ikke tilmeldt nogen hold endnu.</p>
+          <p className="ingen-tilmeldinger">
+            {user.role === 'instructor'
+              ? 'Du har ikke oprettet nogen hold endnu.'
+              : 'Du er ikke tilmeldt nogen hold endnu.'}
+          </p>
         )}
       </div>
 
       <button className="logout-btn" onClick={handleLogout}>
         Log ud
       </button>
+
+      {/* Slet bekræftelse modal */}
+      {deleteConfirm && (
+        <div className="modal-overlay">
+          <div className="modal">
+            <h3 className="modal-title">Er du sikker?</h3>
+            <p className="modal-text">
+              Vil du slette <strong>{deleteConfirm.name}</strong>? Dette kan ikke fortrydes.
+            </p>
+            <div className="modal-knapper">
+              <button className="modal-annuller" onClick={() => setDeleteConfirm(null)}>
+                Annuller
+              </button>
+              <button className="modal-slet" onClick={handleDelete}>
+                Slet
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

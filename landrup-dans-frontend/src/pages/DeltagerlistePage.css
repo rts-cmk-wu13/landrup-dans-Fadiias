@@ -1,0 +1,97 @@
+.deltagerliste-page {
+  width: 100%;
+  max-width: 410px;
+  min-height: 100vh;
+  background: #003147;
+  margin: 0 auto;
+  padding-bottom: 90px;
+  display: flex;
+  flex-direction: column;
+}
+
+.deltagerliste-header {
+  display: flex;
+  align-items: center;
+  padding: 1.5rem 1.5rem 0;
+  position: relative;
+}
+
+.deltagerliste-back {
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.deltagerliste-title {
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 500;
+  font-size: 24px;
+  color: #EBECDF;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+}
+
+.deltagerliste-aktivitet {
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  color: #E9E9E9;
+  text-align: center;
+  margin: 1.5rem 24px 0;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.deltagerliste-container {
+  padding: 1rem 24px;
+  flex: 1;
+}
+
+.deltagerliste-liste {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.deltagerliste-item {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 14px 20px;
+}
+
+.deltager-navn {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 18px;
+  color: #EBECDF;
+}
+
+.deltagerliste-tom {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 18px;
+  color: #EBECDF;
+  text-align: center;
+  padding: 2rem;
+}
+
+.deltagerliste-antal {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.6);
+  text-align: center;
+  padding: 1rem;
+}
+
+.deltagerliste-loading {
+  font-family: 'Ubuntu', sans-serif;
+  color: #ffffff;
+  text-align: center;
+  padding: 2rem;
+}

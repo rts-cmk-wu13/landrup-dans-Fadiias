@@ -5,7 +5,10 @@
   min-height: 100vh;
   margin: 0 auto;
   background: #003147;
-  padding-bottom: 90px; /* Space for footer navigation */
+  padding-top: 299px;
+  padding-bottom: 90px;
+  display: flex;
+  flex-direction: column;
 }
 
 .profile-title {
@@ -31,11 +34,12 @@
   padding: 16px 24px;
   gap: 14px;
   position: absolute;
-  width: 410px;
+  width: 100%;
   height: 176px;
   left: 0px;
   top: 80px;
   background: #E9E9E9;
+  box-sizing: border-box;
 }
 
 .profile-avatar {
@@ -61,8 +65,6 @@
 }
 
 .profile-name {
-  width: 362px;
-  height: 31px;
   font-family: 'Ubuntu', sans-serif;
   font-style: normal;
   font-weight: 500;
@@ -71,15 +73,9 @@
   text-align: center;
   color: #003147;
   margin: 0;
-  flex: none;
-  order: 1;
-  align-self: stretch;
-  flex-grow: 0;
 }
 
 .profile-role {
-  width: 362px;
-  height: 21px;
   font-family: 'Ubuntu', sans-serif;
   font-style: normal;
   font-weight: 400;
@@ -88,31 +84,48 @@
   text-align: center;
   color: #003147;
   margin: 0;
-  flex: none;
-  order: 2;
-  align-self: stretch;
-  flex-grow: 0;
 }
 
 /* Tilmeldte Hold Sektion */
 .tilmeldte-section {
-  position: absolute;
-  top: 299px;
-  left: 0;
   width: 100%;
-  padding: 0 24px;
+  padding: 20px 24px 0;
+  flex: 1;
+}
+
+.tilmeldte-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.opret-hold-btn {
+  background: #E9E9E9;
+  color: #003147;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 2px 3px 4px rgba(0, 0, 0, 0.25);
+  transition: opacity 0.3s;
+}
+
+.opret-hold-btn:hover {
+  opacity: 0.85;
 }
 
 .tilmeldte-title {
-  width: 163px;
-  height: 28px;
   font-family: 'Ubuntu', sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 24px;
   line-height: 28px;
   color: #EBECDF;
-  margin: 0 0 20px 0;
+  margin: 0;
 }
 
 .kalender-list {
@@ -124,7 +137,7 @@
 /* Kalender Kort */
 .kalender-kort {
   position: relative;
-  width: 362px;
+  width: 100%;
   height: 160px;
   background: rgba(255, 255, 255, 0.8);
   border-radius: 12px;
@@ -134,8 +147,6 @@
 
 .kalender-kort-titel {
   position: absolute;
-  width: 315px;
-  height: 30px;
   left: 24px;
   top: 16px;
   font-family: 'Ubuntu', sans-serif;
@@ -149,8 +160,6 @@
 
 .kalender-kort-tid {
   position: absolute;
-  width: 315px;
-  height: 21px;
   left: 24px;
   top: 63px;
   font-family: 'Ubuntu', sans-serif;
@@ -162,13 +171,18 @@
   margin: 0;
 }
 
+.kalender-knapper {
+  position: absolute;
+  bottom: 14px;
+  left: 24px;
+  display: flex;
+  gap: 8px;
+}
+
 /* Knap */
 .kalender-vis-knap {
-  position: absolute;
-  width: 150px;
-  height: 43px;
-  left: 24px;
-  top: 100px;
+  width: 100px;
+  height: 36px;
   background: #003147;
   box-shadow: 3px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
@@ -176,7 +190,7 @@
   font-family: 'Ubuntu', sans-serif;
   font-style: normal;
   font-weight: 400;
-  font-size: 18px;
+  font-size: 14px;
   line-height: 21px;
   text-align: center;
   color: #EBECDF;
@@ -186,6 +200,104 @@
 
 .kalender-vis-knap:hover {
   opacity: 0.9;
+}
+
+.kalender-rediger-knap {
+  width: 80px;
+  height: 36px;
+  background: #005a7a;
+  border-radius: 10px;
+  border: none;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 14px;
+  color: #EBECDF;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+.kalender-rediger-knap:hover {
+  opacity: 0.9;
+}
+
+.kalender-slet-knap {
+  width: 60px;
+  height: 36px;
+  background: #c0392b;
+  border-radius: 10px;
+  border: none;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 14px;
+  color: #ffffff;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+.kalender-slet-knap:hover {
+  opacity: 0.9;
+}
+
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.modal {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 2rem;
+  width: 320px;
+  text-align: center;
+}
+
+.modal-title {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 22px;
+  color: #003147;
+  margin-bottom: 1rem;
+}
+
+.modal-text {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+.modal-knapper {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.modal-annuller {
+  padding: 10px 24px;
+  background: #E9E9E9;
+  border: none;
+  border-radius: 8px;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 16px;
+  color: #003147;
+  cursor: pointer;
+}
+
+.modal-slet {
+  padding: 10px 24px;
+  background: #c0392b;
+  border: none;
+  border-radius: 8px;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 16px;
+  color: #ffffff;
+  cursor: pointer;
 }
 
 .ingen-tilmeldinger {
@@ -203,11 +315,10 @@
   font-size: 1.2rem;
   font-family: 'Ubuntu', sans-serif;
 }
+
 .logout-btn {
-  position: absolute;
-  bottom: 110px; /* Position above footer navigation */
-  left: 50%;
-  transform: translateX(-50%);
+  display: block;
+  margin: 24px auto 0;
   width: 200px;
   height: 43px;
   background: #E9E9E9;

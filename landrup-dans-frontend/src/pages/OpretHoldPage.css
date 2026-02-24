@@ -1,0 +1,141 @@
+.opret-hold-page {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background: #003147;
+  padding: 0;
+  padding-bottom: 90px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 410px;
+  margin: 0 auto;
+}
+
+.opret-hold-header {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 1.5rem 1.5rem 0;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.opret-hold-back {
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.opret-hold-title {
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 400;
+  font-size: 28px;
+  color: #EAEAEA;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+}
+
+.opret-hold-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  padding: 2rem 28px;
+  box-sizing: border-box;
+  margin-top: 1rem;
+}
+
+.opret-hold-input {
+  width: 100%;
+  height: 45px;
+  background: #E9E9E9;
+  border: none;
+  padding: 12px;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  color: #000;
+  box-sizing: border-box;
+}
+
+.opret-hold-input::placeholder {
+  color: #999999;
+}
+
+.opret-hold-textarea {
+  height: 100px;
+  resize: vertical;
+}
+
+.opret-hold-select {
+  color: #000;
+  appearance: none;
+  cursor: pointer;
+}
+
+.opret-hold-select option[value=""] {
+  color: #999999;
+}
+
+.opret-hold-file-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 45px;
+  background: #E9E9E9;
+  color: #999999;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 18px;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.opret-hold-file-input {
+  display: none;
+}
+
+.opret-hold-submit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 240px;
+  height: 53px;
+  background: #E9E9E9;
+  box-shadow: 3px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  border: none;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  color: #003147;
+  cursor: pointer;
+  transition: opacity 0.3s;
+  margin-top: 1rem;
+}
+
+.opret-hold-submit:hover {
+  opacity: 0.9;
+}
+
+.opret-hold-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.opret-hold-error {
+  color: #ff6b6b;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 0.75rem;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 0.9rem;
+  width: 100%;
+}

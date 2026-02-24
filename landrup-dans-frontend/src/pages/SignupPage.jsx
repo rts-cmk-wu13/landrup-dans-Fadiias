@@ -53,7 +53,7 @@ function SignupPage() {
         username: formData.username,
         age: parseInt(formData.age),
         password: formData.password,
-        role: 'member'
+        role: 'default'
       };
       
       await createUser(userData);

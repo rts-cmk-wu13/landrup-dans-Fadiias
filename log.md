@@ -43,5 +43,8 @@ Eftermiddag - (kl. 15:23)
 
 ## Dag 5
 
-Morgen - (tidspunkt)  
-Eftermiddag - (tidspunkt)
+Eftermiddag - (kl. 15:00)
+ "Implementeret de to sidste Figma-sider: LoginPage opdateret med LANDRUP DANS logo og divider linje. Oprettet OpretHoldPage (instruktør only) med formular til oprettelse af nye hold (navn, beskrivelse, ugedag, tidspunkt, max deltagere, alder, billede). Oprettet RedigerHoldPage med pre-udfyldt formular og PATCH til API. Tilføjet slet-funktionalitet på ProfilePage med bekræftelsesmodal ('Er du sikker?'). Oprettet DeltagerlistePage (instruktør only) med deltagerliste for et hold. Instruktørers 'Vis hold' knap ændret til 'Deltagerliste'. Søgefunktion udvidet til at inkludere ugedag og instruktørnavn. No-results tekst opdateret til at matche kravsspecifikationen. Tilmeldings-knap på ActivityDetailPage skjult for ikke-indloggede brugere. Knaptekst ændret fra 'Frameld' til 'Forlad'. Tilføjet aldersbegrænsning- og samme-ugedag-validering ved tilmelding. Nyhedsbrev, testimonials og kontaktformular forbundet til API. Cookies implementeret med 'Husk mig' funktion på LoginPage. Brugerrolle ændret fra 'member' til 'default' ved oprettelse. Alle CSS-stilarter gennemgået og fejl rettet (ProfilePage layout fikset til flexbox, responsiv bredde, fejlplacerede knapper). Footer med logo og adresse tilføjet på HomePage."
+   
+   -Username: user1 → user6, Password: 1234
+  - Ages: user1=14, user2=17, user3=21, user4=24, user5=52, user6=51

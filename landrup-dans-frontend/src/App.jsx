@@ -6,6 +6,9 @@ import SignupPage from './pages/SignupPage';
 import ActivitiesPage from './pages/ActivitiesPage';
 import ActivityDetailPage from './pages/ActivityDetailPage';
 import ProfilePage from './pages/ProfilePage';
+import OpretHoldPage from './pages/OpretHoldPage';
+import RedigerHoldPage from './pages/RedigerHoldPage';
+import DeltagerlistePage from './pages/DeltagerlistePage';
 import Footer from './components/Footer';
 import './App.css';
 
@@ -21,6 +24,9 @@ function App() {
           <Route path="/aktiviteter" element={<ActivitiesPage />} />
           <Route path="/aktiviteter/:id" element={<ActivityDetailPage />} />
           <Route path="/profil" element={<ProfilePage />} />
+          <Route path="/opret-hold" element={<OpretHoldPage />} />
+          <Route path="/rediger-hold/:id" element={<RedigerHoldPage />} />
+          <Route path="/deltagerliste/:id" element={<DeltagerlistePage />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
         <Footer />
